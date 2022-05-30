@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+  <head>
+   <script src="https://mj-dev-cdn.netlify.app/js/mojoauth.min.js">
+   </script>
+  </head>
+  <body>
+   
+    <div id="mojoauth-passwordless-form"></div>
+
+    <script>
+        
+        // Enter you API Key
+        config={
+            language: "en",
+            redirect_url: "",
+            source: [ {type:'phone',feature:'otp'}, {type:'email',feature:'magiclink'}],
+        }
+        const mojoauth = new MojoAuth( "b5712cf0-338b-4bd9-b37b-c2d8f90f881f", config);
+        // Use signInWithEmailOTP() for authentication using Email OTP
+        mojoauth.signIn().then( response => {
+            console.log("reached here")
+            mojoauth.enableWebauthn(response.oauth.access_token)
+                // mojoauth.enableWebauthn(response.oauth.access_token).then(response=> console.log(response))
+            //          mojoauth.enableWebauthn(response.oauth.access_token)
+            alert( "Please check console to see profile data" );
+            console.log( response )
+        } );
+        </script>
+  </body>
+</html>
