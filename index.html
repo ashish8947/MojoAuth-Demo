@@ -12,10 +12,10 @@
         // Enter you API Key
         config={
             language: "en",
-            redirect_url: "localhost:8080/test",
+            redirect_url: "",
             source: [ {type:'phone',feature:'otp'}, {type:'email',feature:'magiclink'}],
         }
-        const mojoauth = new MojoAuth( "71736bb0-8a9b-4f4d-8503-62355cfb030b", config);
+        const mojoauth = new MojoAuth( "b5712cf0-338b-4bd9-b37b-c2d8f90f881f", config);
         // Use signInWithEmailOTP() for authentication using Email OTP
         mojoauth.signIn().then( response => {
             console.log("reached here")
